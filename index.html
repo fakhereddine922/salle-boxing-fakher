@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#09182b"><meta name="description" content="إدارة منخرطي نادي الكيك بوكسينغ دون إنترنت">
+<link rel="manifest" href="manifest.json"><link rel="stylesheet" href="style.css">
+<title>Salle Boxing Fakher</title>
+</head>
+<body>
+<header><div class="brand">🥊</div><div><h1>Salle Boxing Fakher</h1><p>إدارة النادي • القوة والانضباط</p></div></header>
+<nav class="tabs">
+<button class="tab active" data-page="home">🏠<span>الرئيسية</span></button>
+<button class="tab" data-page="members">👥<span>المنخرطون</span></button>
+<button class="tab" data-page="add">➕<span>إضافة</span></button>
+<button class="tab" data-page="payments">💳<span>الأداءات</span></button>
+<button class="tab" data-page="alerts">🔔<span>التذكير</span></button>
+</nav>
+<main>
+<section id="home" class="page active">
+<div class="welcome"><span class="eyebrow">لوحة التحكم</span><h2>مرحبًا بك، مدرّبنا 💪</h2><p>تابع منخرطيك واشتراكاتهم بسهولة.</p></div>
+<div class="stats"><article class="stat blue"><span>👥</span><small>إجمالي المنخرطين</small><strong id="total">0</strong></article><article class="stat red"><span>🔔</span><small>يحتاجون إلى الأداء</small><strong id="due">0</strong></article><article class="stat dark"><span>💰</span><small>مجموع الأداءات</small><strong id="income">0 د.م</strong></article><article class="stat green"><span>✅</span><small>المؤدّون هذا الشهر</small><strong id="paid">0</strong></article></div>
+<div class="section-title"><h3>اختصارات</h3></div>
+<div class="quick"><button class="action" data-go="add">➕<b>تسجيل منخرط</b></button><button class="action" data-go="members">👥<b>قائمة المنخرطين</b></button><button class="action" data-go="payments">💳<b>تسجيل أداء</b></button><button class="action" data-go="alerts">🔔<b>المتأخرون</b></button></div>
+<div class="note">💾 بياناتك محفوظة محليًا في هذا المتصفح على الهاتف. لا تحذف بيانات المتصفح قبل تصدير نسخة احتياطية.</div>
+</section>
+<section id="members" class="page"><div class="section-title"><h2>👥 المنخرطون</h2><button class="small primary" data-go="add">+ جديد</button></div><input id="search" placeholder="🔎 ابحث بالاسم أو الهاتف"><div id="memberList" class="list"></div></section>
+<section id="add" class="page"><div class="section-title"><h2>➕ تسجيل منخرط</h2></div><form id="memberForm" class="panel">
+<label>الاسم الكامل<input name="name" required placeholder="اسم المنخرط"></label><label>رقم الهاتف<input name="phone" inputmode="tel" placeholder="06XXXXXXXX"></label><div class="two"><label>الاشتراك الشهري (درهم)<input name="fee" type="number" min="0" step="0.5" required placeholder="200"></label><label>تاريخ التسجيل<input name="join" type="date" required></label></div><label>ملاحظات<textarea name="notes" rows="2" placeholder="ملاحظات اختيارية"></textarea></label><button class="primary full" type="submit">💾 حفظ المنخرط</button></form></section>
+<section id="payments" class="page"><div class="section-title"><h2>💳 تسجيل الأداء</h2></div><form id="paymentForm" class="panel"><label>اختر المنخرط<select name="member" id="payMember" required></select></label><div class="two"><label>المبلغ (درهم)<input name="amount" type="number" min="0" step="0.5" required></label><label>الشهر المؤدى عنه<input name="month" id="payMonth" type="month" required></label></div><label>تاريخ الأداء<input name="date" type="date" required></label><button class="primary full" type="submit">✅ حفظ الأداء</button></form><h3 class="section-title">آخر الأداءات</h3><div id="paymentList" class="list"></div></section>
+<section id="alerts" class="page"><div class="section-title"><h2>🔔 التذكير الشهري</h2></div><div class="note">تعرض هذه القائمة من لم يُسجّل له أداء عن الشهر الحالي. يمكنك فتح WhatsApp لإرسال تذكير يدوي. لا تُرسل الرسائل تلقائيًا.</div><div id="dueList" class="list"></div></section>
+<section class="page" id="settings"><div class="section-title"><h2>⚙️ الإعدادات والنسخ الاحتياطي</h2></div><div class="panel"><p>صدّر بيانات النادي إلى ملف JSON للاحتفاظ بنسخة احتياطية أو نقلها.</p><button class="primary full" id="export">⬇️ تصدير نسخة احتياطية</button><label class="import-label">استيراد نسخة احتياطية<input id="import" type="file" accept="application/json"></label><button class="danger full" id="clear">حذف جميع البيانات</button></div></section>
+</main>
+<footer><button data-go="settings">⚙️ النسخ الاحتياطي والإعدادات</button><small>نسخة محلية • لا تحتاج إلى اتصال دائم</small></footer>
+<div id="toast" role="status"></div>
+<script src="app.js"></script>
+</body></html>
